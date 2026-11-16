@@ -3,8 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professional portfolio of John Anthony O. Santiago, Junior Software Engineer based in Roxas City, Capiz, Philippines.">
-  <title>John Anthony O. Santiago | Junior Software Engineer Portfolio</title>
+  <meta name="description" content="Professional portfolio of John Anthony O. Santiago, Software Engineering / Web Developer Intern based in Roxas City, Capiz, Philippines.">
+  <title>John Anthony O. Santiago | Software Engineering / Web Developer Intern Portfolio</title>
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('portfolio-theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (error) {}
+    }());
+  </script>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -25,6 +37,10 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+        <span class="theme-toggle__swatch" aria-hidden="true"></span>
+        <span class="theme-toggle__label" data-theme-label>THEME: PAPER</span>
+      </button>
     </div>
   </header>
 
@@ -33,7 +49,7 @@
       <div class="hero__grid">
         <div class="hero__visual-column">
           <figure class="profile-frame">
-            <img src="assets/images/profile.jpg" alt="John Anthony O. Santiago — Junior Software Engineer">
+            <img src="assets/images/profile.jpg" alt="John Anthony O. Santiago — Software Engineering / Web Developer Intern">
           </figure>
           <div class="hero__location-meta">
             <p class="meta-label">Location</p>
@@ -44,8 +60,8 @@
         <div class="hero__content-column">
           <p class="eyebrow">Professional Track &mdash; Business Communication in IT</p>
           <h1 id="hero-title" class="hero__name">John Anthony O. Santiago</h1>
-          <p class="hero__role">Junior Software Engineer</p>
-          <p class="hero__pitch">3rd-year Computer Science student bridging low-level C hardware fundamentals, normalized relational databases, and structured AI-assisted engineering to build reliable, well-documented software systems.</p>
+      <p class="hero__role">Software Engineering / Web Developer Intern</p>
+      <p class="hero__pitch">3rd-Year BS Computer Science, Filamer Christian University, Expected Graduation: 2028. Bridging low-level C hardware fundamentals, normalized relational databases, and structured AI-assisted engineering to build reliable, well-documented software systems.</p>
 
           <div class="hero__actions" aria-label="Primary actions">
             <a class="button button--primary" href="https://github.com/reindayo" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -75,27 +91,29 @@
         <article class="skill-domain" aria-labelledby="skills-languages">
           <h3 id="skills-languages">Languages</h3>
           <ul class="skill-list">
-            <li class="skill-item"><span class="skill-name">Python</span><span class="skill-tier" data-tier="core-proficiency">Core Proficiency</span></li>
             <li class="skill-item"><span class="skill-name">JavaScript (ES6+)</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
+            <li class="skill-item"><span class="skill-name">Python</span><span class="skill-tier" data-tier="core-proficiency">Core Proficiency</span></li>
+            <li class="skill-item"><span class="skill-name">C</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
+            <li class="skill-item"><span class="skill-name">SQL</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
             <li class="skill-item"><span class="skill-name">HTML5 &amp; CSS3</span><span class="skill-tier" data-tier="core-proficiency">Core Proficiency</span></li>
-            <li class="skill-item"><span class="skill-name">C (Self-Taught Low-Level &amp; Memory Fundamentals)</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
           </ul>
         </article>
 
         <article class="skill-domain" aria-labelledby="skills-frameworks">
           <h3 id="skills-frameworks">Frameworks &amp; APIs</h3>
           <ul class="skill-list">
-            <li class="skill-item"><span class="skill-name">React.js</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
-            <li class="skill-item"><span class="skill-name">Next.js</span><span class="skill-tier" data-tier="foundational-exploring">Foundational / Exploring</span></li>
-            <li class="skill-item"><span class="skill-name">REST API Integration &amp; External AI API Keys</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
+            <li class="skill-item"><span class="skill-name">React</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
+            <li class="skill-item"><span class="skill-name">Node.js</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
+            <li class="skill-item"><span class="skill-name">Express.js</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
+            <li class="skill-item"><span class="skill-name">REST APIs</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
           </ul>
         </article>
 
         <article class="skill-domain" aria-labelledby="skills-databases">
           <h3 id="skills-databases">Databases</h3>
           <ul class="skill-list">
-            <li class="skill-item"><span class="skill-name">PostgreSQL (Schema Normalization &amp; Multi-Table Joins)</span><span class="skill-tier" data-tier="core-proficiency">Core Proficiency</span></li>
-            <li class="skill-item"><span class="skill-name">MySQL (phpMyAdmin)</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
+            <li class="skill-item"><span class="skill-name">MySQL</span><span class="skill-tier" data-tier="working-knowledge">Working Knowledge</span></li>
+            <li class="skill-item"><span class="skill-name">PostgreSQL</span><span class="skill-tier" data-tier="core-proficiency">Core Proficiency</span></li>
           </ul>
         </article>
 
@@ -201,11 +219,12 @@
           <article class="doc-panel" id="panel-cover-letter" role="tabpanel" aria-labelledby="tab-cover-letter" tabindex="0" hidden>
             <header class="doc-panel__header">
               <p class="meta-label">Technical Cover Letter</p>
-              <h3>Application for Junior Software Engineer Role</h3>
+              <h3>Application for Software Engineering / Web Developer Intern Role</h3>
+              <p>John Anthony O. Santiago &middot; <a href="mailto:santiago.johnanthonyorillanes@filamer.edu.ph">santiago.johnanthonyorillanes@filamer.edu.ph</a> &middot; +63 962 527 7295</p>
             </header>
             <div class="letter">
               <p>Dear Hiring Manager,</p>
-              <p>I am John Anthony O. Santiago, a 3rd-year BS in Computer Science student at Filamer Christian University in Roxas City, Capiz, applying for a Junior Software Engineer opportunity. I bring a disciplined engineering approach grounded in C fundamentals, relational database design, and clear technical communication.</p>
+              <p>I am John Anthony O. Santiago, a 3rd-Year BS Computer Science student at Filamer Christian University (Expected Graduation: 2028) in Roxas City, Capiz, applying for a Software Engineering / Web Developer Intern opportunity. I bring a disciplined engineering approach grounded in C fundamentals, relational database design, and clear technical communication.</p>
               <p>Through self-directed study of C, I developed a practical understanding of how hardware reads code at the memory level, which informs how I reason about correctness and performance. I have designed normalized PostgreSQL schemas, written analytical SQL joins, and worked with MySQL (phpMyAdmin), while also building web interfaces with HTML/CSS and JavaScript and exploring React.js, Next.js, and REST API integrations. In my AI-assisted workflows, I prioritize deterministic outputs by using custom skills and anti-hallucination constraints supported by verification checks.</p>
               <p>I am eager to contribute reliable, well-documented software and to communicate technical decisions clearly within a team. Thank you for considering my application.</p>
               <p>Sincerely,<br>John Anthony O. Santiago</p>
@@ -215,13 +234,14 @@
           <article class="doc-panel" id="panel-resume-summary" role="tabpanel" aria-labelledby="tab-resume-summary" tabindex="0" hidden>
             <header class="doc-panel__header">
               <p class="meta-label">Executive Resume Summary</p>
-              <h3>John Anthony O. Santiago &mdash; Junior Software Engineer</h3>
+              <h3>John Anthony O. Santiago &mdash; Software Engineering / Web Developer Intern</h3>
+              <p>3rd-Year BS Computer Science, Filamer Christian University (Expected Graduation: 2028) &middot; <a href="mailto:santiago.johnanthonyorillanes@filamer.edu.ph">santiago.johnanthonyorillanes@filamer.edu.ph</a> &middot; +63 962 527 7295</p>
             </header>
             <div class="resume-preview">
               <ul class="resume-highlights">
-                <li>3rd-year Computer Science student (Filamer Christian University) with foundations in C memory-level reasoning, web development, and relational databases.</li>
-                <li>Experience designing normalized PostgreSQL schemas, API integration workflows, and documentation for maintainable systems.</li>
-                <li>Applies deterministic AI-assisted engineering practices with custom skills, strict context boundaries, and verification checks.</li>
+                <li>3rd-Year BS Computer Science student at Filamer Christian University (Expected Graduation: 2028) targeting a Software Engineering / Web Developer Intern role.</li>
+                <li>Builds with React, JavaScript (ES6+), Node.js, Express.js, REST APIs, MySQL, PostgreSQL, and SQL to deliver reliable web and data-driven applications.</li>
+                <li>Applies C and Python foundations with disciplined debugging, documentation, and structured AI-assisted engineering practices.</li>
               </ul>
               <a class="button button--primary" href="assets/docs/John_Anthony_Santiago_Resume.pdf" download>Download Executive Resume (PDF)</a>
             </div>
@@ -233,16 +253,16 @@
     <section id="contact" class="contact section" aria-labelledby="contact-title">
       <div class="section__intro">
         <p class="meta-label">Contact Channel</p>
-        <h2 id="contact-title">Open to Junior Software Engineer internships or entry-level roles</h2>
-        <p>If you are hiring for an intern or entry-level Junior Software Engineer, I would welcome the opportunity to contribute and grow with your team.</p>
+        <h2 id="contact-title">Open to Software Engineering / Web Developer Intern roles</h2>
+        <p>If you are hiring for a Software Engineering / Web Developer Intern, I would welcome the opportunity to contribute and grow with your team.</p>
       </div>
 
       <div class="contact__layout">
         <div class="contact__details">
           <div class="contact-email-block">
             <p class="meta-label">Email</p>
-            <p class="contact-email"><a href="mailto:johnanthonytontonstg09@gmail.com">johnanthonytontonstg09@gmail.com</a></p>
-            <button class="button button--secondary" type="button" data-copy-email="johnanthonytontonstg09@gmail.com">Copy Email</button>
+            <p class="contact-email"><a href="mailto:santiago.johnanthonyorillanes@filamer.edu.ph">santiago.johnanthonyorillanes@filamer.edu.ph</a></p>
+            <button class="button button--secondary" type="button" data-copy-email="santiago.johnanthonyorillanes@filamer.edu.ph">Copy Email</button>
             <p class="copy-status" aria-live="polite"></p>
           </div>
 
@@ -255,7 +275,7 @@
           </div>
         </div>
 
-        <form class="contact-form" action="mailto:johnanthonytontonstg09@gmail.com" method="get">
+        <form class="contact-form" action="mailto:santiago.johnanthonyorillanes@filamer.edu.ph" method="get">
           <div class="form-field">
             <label for="contact-name">Name</label>
             <input id="contact-name" name="name" type="text" autocomplete="name" required>
