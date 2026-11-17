@@ -259,7 +259,7 @@ export default function Documentation() {
               </ul>
               <a
                 className="button button--primary"
-                href="/assets/docs/John_Anthony_Santiago_Resume.pdf"
+                href={`${import.meta.env.BASE_URL}assets/docs/John_Anthony_Santiago_Resume.pdf`}
                 download
               >
                 Download Executive Resume (PDF)

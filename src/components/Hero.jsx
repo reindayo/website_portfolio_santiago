@@ -7,7 +7,7 @@ export default function Hero() {
         <div className="hero__visual-column">
           <figure className="profile-frame">
             <img
-              src="/assets/images/profile.jpg"
+              src={`${import.meta.env.BASE_URL}assets/images/profile.jpg`}
               width="1113"
               height="1280"
               alt="John Anthony O. Santiago — Software Engineering / Web Developer Intern"
@@ -55,7 +55,7 @@ export default function Hero() {
             </a>
             <a
               className="button button--ghost"
-              href="/assets/docs/John_Anthony_Santiago_Resume.pdf"
+              href={`${import.meta.env.BASE_URL}assets/docs/John_Anthony_Santiago_Resume.pdf`}
               download
             >
               Download PDF Resume
