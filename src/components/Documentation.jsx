@@ -238,8 +238,8 @@ export default function Documentation() {
             <h4 id="certification-issuer">Issuer</h4>
             <p>Cisco Networking Academy</p>
           </section>
-          <section className="qa-artifact__block" aria-labelledby="certification-recipient">
-            <h4 id="certification-recipient">Recipient</h4>
+          <section className="qa-artifact__block" aria-labelledby="certification-awarded-to">
+            <h4 id="certification-awarded-to">Awarded to</h4>
             <p>John Anthony Santiago</p>
           </section>
           <section className="qa-artifact__block" aria-labelledby="certification-date">
