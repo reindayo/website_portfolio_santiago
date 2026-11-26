@@ -8,6 +8,9 @@ const domains = [
       { name: 'C', tier: 'working-knowledge', label: 'Working Knowledge' },
       { name: 'SQL', tier: 'working-knowledge', label: 'Working Knowledge' },
       { name: 'HTML5 & CSS3', tier: 'core-proficiency', label: 'Core Proficiency' },
+      { name: 'Django', tier: 'working-knowledge', label: 'Working Knowledge' },
+      { name: 'Vite', tier: 'working-knowledge', label: 'Working Knowledge' },
+      { name: 'Next.js', tier: 'working-knowledge', label: 'Working Knowledge' },
     ],
   },
   {
@@ -34,11 +37,6 @@ const domains = [
     skills: [
       { name: 'Git & GitHub', tier: 'core-proficiency', label: 'Core Proficiency' },
       { name: 'VS Code', tier: 'core-proficiency', label: 'Core Proficiency' },
-      {
-        name: 'Custom AI Skill Systems & Anti-Hallucination Prompting',
-        tier: 'working-knowledge',
-        label: 'Working Knowledge',
-      },
     ],
   },
 ]
