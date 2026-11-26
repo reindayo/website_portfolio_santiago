@@ -13,7 +13,7 @@ export default function Projects() {
         <p className="meta-label">Completed Work</p>
         <h2 id="projects-title">Featured Projects</h2>
         <p>
-          Two portfolio entries covering an electronic parts inventory tracker and a completed
+          Two completed portfolio entries covering an electronic parts inventory tracker and a peer
           tutoring request platform. Each case study documents the problem, solution, my role, tech
           stack, and interface visuals.
         </p>

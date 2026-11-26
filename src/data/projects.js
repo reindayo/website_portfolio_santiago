@@ -1,11 +1,14 @@
 export const projects = [
   {
     id: 'part-tract',
-    index: 'Project 1 · In Development',
+    index: 'Project 1 · Completed',
     title: 'Part-Tract',
     summary:
       'A web-based electronic parts and inventory tracking system for component lookup, storage bin assignment, and stock status tracking across shared resource views.',
-    link: null,
+    link: {
+      label: 'GitHub Repository',
+      href: 'https://github.com/reindayo/part-tract',
+    },
     blocks: [
       {
         id: 'part-tract-overview',
@@ -43,7 +46,7 @@ export const projects = [
       'Full-stack peer-to-peer tutoring request platform that routes student subject requests, queries tutor availability across dual SQLite databases (requests_staff.db and tutors.db), serves deduplicated subject options via /api/subjects, and dispatches automated Gmail SMTP notifications behind session-authenticated staff routes.',
     link: {
       label: 'GitHub Repository',
-      href: 'https://github.com/reindayo/peer-tutoring-matching-system',
+      href: 'https://github.com/reindayo/Website_project',
     },
     blocks: [
       {
