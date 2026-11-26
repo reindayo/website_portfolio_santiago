@@ -223,6 +223,55 @@ export default function Documentation() {
           </div>
         </div>
       </div>
+
+      <article className="qa-artifact reveal" aria-labelledby="certifications-title">
+        <header className="qa-artifact__header">
+          <p className="meta-label">CERTIFICATIONS</p>
+          <h3 id="certifications-title">Cisco Networking Academy Credential</h3>
+        </header>
+        <div className="qa-artifact__grid">
+          <section className="qa-artifact__block" aria-labelledby="certification-credential">
+            <h4 id="certification-credential">Credential</h4>
+            <p>Introduction to Modern AI</p>
+          </section>
+          <section className="qa-artifact__block" aria-labelledby="certification-issuer">
+            <h4 id="certification-issuer">Issuer</h4>
+            <p>Cisco Networking Academy</p>
+          </section>
+          <section className="qa-artifact__block" aria-labelledby="certification-recipient">
+            <h4 id="certification-recipient">Recipient</h4>
+            <p>John Anthony Santiago</p>
+          </section>
+          <section className="qa-artifact__block" aria-labelledby="certification-date">
+            <h4 id="certification-date">Completion Date</h4>
+            <p>26 Nov 2026</p>
+          </section>
+          <section className="qa-artifact__block" aria-labelledby="certification-id">
+            <h4 id="certification-id">Certificate ID</h4>
+            <p>4b941764-6367-4432-84d5-73c1813699c1</p>
+          </section>
+          <section className="qa-artifact__block" aria-labelledby="certification-actions">
+            <h4 id="certification-actions">Certificate Actions</h4>
+            <div className="form-actions">
+              <a
+                className="button button--primary"
+                href={`${import.meta.env.BASE_URL}assets/docs/Cisco_Introduction_to_Modern_AI_Certificate.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                VIEW CERTIFICATE
+              </a>{' '}
+              <a
+                className="button button--secondary"
+                href={`${import.meta.env.BASE_URL}assets/docs/Cisco_Introduction_to_Modern_AI_Certificate.pdf`}
+                download="Cisco_Introduction_to_Modern_AI_Certificate.pdf"
+              >
+                DOWNLOAD PDF
+              </a>
+            </div>
+          </section>
+        </div>
+      </article>
     </section>
   )
 }
