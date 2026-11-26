@@ -2,24 +2,19 @@ import { useState } from 'react'
 
 const tabs = [
   {
-    id: 'panel-sop',
-    tabId: 'tab-sop',
-    label: 'Tab 1 — Standard Operating Procedure (SOP-01)',
-  },
-  {
     id: 'panel-cover-letter',
     tabId: 'tab-cover-letter',
-    label: 'Tab 2 — Technical Cover Letter',
+    label: 'Tab 1 — Technical Cover Letter',
   },
   {
     id: 'panel-resume-summary',
     tabId: 'tab-resume-summary',
-    label: 'Tab 3 — Executive Resume Summary & PDF Download',
+    label: 'Tab 2 — Executive Resume Summary & PDF Download',
   },
 ]
 
 export default function Documentation() {
-  const [activeTab, setActiveTab] = useState(tabs[0].id)
+  const [activeTab, setActiveTab] = useState('panel-cover-letter')
 
   const selectTab = (id, shouldFocus = false) => {
     setActiveTab(id)
@@ -137,46 +132,6 @@ export default function Documentation() {
         </div>
 
         <div className="doc-panels">
-          <div
-            className={activeTab === 'panel-sop' ? 'doc-panel is-active' : 'doc-panel'}
-            id="panel-sop"
-            role="tabpanel"
-            aria-labelledby="tab-sop"
-            tabIndex={0}
-            hidden={activeTab !== 'panel-sop'}
-          >
-            <header className="doc-panel__header">
-              <p className="meta-label">SOP-01</p>
-              <h3>Deterministic AI-Assisted Development & Anti-Hallucination Workflow</h3>
-            </header>
-            <ol className="doc-steps">
-              <li>
-                <strong>Define bounded context:</strong> Provide explicit goals, constraints, file
-                scope, and non-goals before generation to prevent fabricated assumptions.
-              </li>
-              <li>
-                <strong>
-                  Apply custom <code>SKILL.md</code> rules:
-                </strong>{' '}
-                Enforce reusable instructions for code style, verification discipline, and
-                domain-specific guardrails.
-              </li>
-              <li>
-                <strong>Require evidence-based outputs:</strong> Demand citations to inspected files,
-                command results, or data sources for claims that affect implementation.
-              </li>
-              <li>
-                <strong>Run verification checks:</strong> Validate structure, logic, and requirements
-                with deterministic checks (searches, tests, schema constraints, or manual review
-                gates).
-              </li>
-              <li>
-                <strong>Document decisions:</strong> Record assumptions, outcomes, and unresolved
-                risks so generated work remains auditable and maintainable.
-              </li>
-            </ol>
-          </div>
-
           <div
             className={activeTab === 'panel-cover-letter' ? 'doc-panel is-active' : 'doc-panel'}
             id="panel-cover-letter"
