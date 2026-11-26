@@ -38,47 +38,34 @@ export const projects = [
   {
     id: 'peer-tutoring',
     index: 'Project 2 · Completed',
-    title:
-      'Peer Tutoring Matching System — Student-Tutor Scheduling & Matching Web Platform',
+    title: 'Peer Tutoring Matching System',
     summary:
-      'A completed scheduling and matching web platform that connects students with volunteer tutors by subject and availability.',
+      'Full-stack peer-to-peer tutoring request platform that routes student subject requests, queries tutor availability across dual SQLite databases (requests_staff.db and tutors.db), serves deduplicated subject options via /api/subjects, and dispatches automated Gmail SMTP notifications behind session-authenticated staff routes.',
     link: {
       label: 'GitHub Repository',
       href: 'https://github.com/reindayo/Website_project',
     },
     blocks: [
       {
-        id: 'peer-tutoring-problem',
-        heading: 'Problem',
-        text: 'Students and volunteer tutors coordinated sessions through group chats and shared spreadsheets. Double bookings, missed subject matches, and lost schedule changes made the process unreliable for both sides.',
-      },
-      {
-        id: 'peer-tutoring-solution',
-        heading: 'Solution',
-        text: 'A completed scheduling and matching web platform: students request sessions by subject and availability, tutors publish time slots, and the matching view ranks compatible tutors by subject overlap and schedule fit before a session is confirmed.',
+        id: 'peer-tutoring-overview',
+        heading: 'Overview',
+        value: 'summary',
       },
       {
         id: 'peer-tutoring-role',
-        heading: 'My Role',
-        text: 'Designed and delivered the responsive interface, scheduling flow, matching logic, and form validation for the completed Website_project build, then published the final source and handoff notes on GitHub.',
+        heading: 'Role / Focus',
+        text: 'Full-Stack Web Application & QA Edge-Case Hardening',
       },
       {
         id: 'peer-tutoring-stack',
         heading: 'Tech Stack',
-        tags: [
-          'HTML5',
-          'CSS3',
-          'JavaScript',
-          'Responsive Web UI',
-          'Scheduling & Matching Logic',
-          'Form Validation',
-        ],
+        tags: ['Python', 'Flask', 'SQLite', 'HTML5', 'CSS3', 'JavaScript', 'SMTP'],
       },
     ],
     visuals: {
       id: 'peer-tutoring-visuals',
       caption:
-        'Interface schematic: weekly availability grid, ranked tutor matches scored by subject and schedule fit, and a confirmed session state.',
+        'Fallback schematic: student subject requests, dual-database tutor lookup, deduplicated subject options, and staff-authenticated notification flow.',
       diagram: 'peer-tutoring',
     },
   },

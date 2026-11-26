@@ -21,6 +21,7 @@ const domains = [
       { name: 'Django', tier: 'working-knowledge', label: 'Working Knowledge' },
       { name: 'Vite', tier: 'working-knowledge', label: 'Working Knowledge' },
       { name: 'Next.js', tier: 'working-knowledge', label: 'Working Knowledge' },
+      { name: 'Flask', tier: 'working-knowledge', label: 'Working Knowledge' },
     ],
   },
   {
@@ -29,6 +30,7 @@ const domains = [
     skills: [
       { name: 'MySQL', tier: 'working-knowledge', label: 'Working Knowledge' },
       { name: 'PostgreSQL', tier: 'core-proficiency', label: 'Core Proficiency' },
+      { name: 'SQLite', tier: 'working-knowledge', label: 'Working Knowledge' },
     ],
   },
   {

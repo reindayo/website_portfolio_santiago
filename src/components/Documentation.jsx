@@ -11,6 +11,11 @@ const tabs = [
     tabId: 'tab-resume-summary',
     label: 'Tab 2 — Executive Resume Summary & PDF Download',
   },
+  {
+    id: 'panel-peer-tutoring',
+    tabId: 'tab-peer-tutoring',
+    label: 'Tab 3 — Peer Tutoring Matching System',
+  },
 ]
 
 export default function Documentation() {
@@ -219,6 +224,64 @@ export default function Documentation() {
               >
                 Download Executive Resume (PDF)
               </a>
+            </div>
+          </div>
+
+          <div
+            className={activeTab === 'panel-peer-tutoring' ? 'doc-panel is-active' : 'doc-panel'}
+            id="panel-peer-tutoring"
+            role="tabpanel"
+            aria-labelledby="tab-peer-tutoring"
+            tabIndex={0}
+            hidden={activeTab !== 'panel-peer-tutoring'}
+          >
+            <header className="doc-panel__header">
+              <p className="meta-label">Peer Tutoring Matching System</p>
+              <h3>Full-Stack Web Application &amp; QA Edge-Case Hardening</h3>
+            </header>
+            <div className="qa-artifact__grid">
+              <section className="qa-artifact__block" aria-labelledby="peer-tutoring-overview-doc">
+                <h4 id="peer-tutoring-overview-doc">Overview</h4>
+                <p>
+                  Full-stack peer-to-peer tutoring request platform that routes student subject
+                  requests, queries tutor availability across dual SQLite databases (
+                  <code>requests_staff.db</code> and <code>tutors.db</code>), serves deduplicated
+                  subject options via <code>/api/subjects</code>, and dispatches automated Gmail SMTP
+                  notifications behind session-authenticated staff routes.
+                </p>
+              </section>
+              <section className="qa-artifact__block" aria-labelledby="peer-tutoring-architecture-doc">
+                <h4 id="peer-tutoring-architecture-doc">Architecture</h4>
+                <p>
+                  Dual-database separation keeps <code>requests_staff.db</code> responsible for
+                  student requests, match history, and staff authentication, while{' '}
+                  <code>tutors.db</code> holds tutor rosters. A dynamic <code>/api/subjects</code> JSON
+                  endpoint serves deduplicated subject options, and TLS-encrypted Gmail SMTP dispatch
+                  runs only from session-authenticated staff routes.
+                </p>
+              </section>
+            </div>
+            <div className="qa-artifact__grid">
+              <section className="qa-artifact__block" aria-labelledby="peer-tutoring-qa-doc">
+                <h4 id="peer-tutoring-qa-doc">QA Fixes</h4>
+                <ol className="qa-steps">
+                  <li>
+                    <strong>Data Persistence:</strong> Replaced destructive post-match tutor deletion
+                    with non-destructive assignment so active tutors remain available for future
+                    requests.
+                  </li>
+                  <li>
+                    <strong>Constraint &amp; Input Hardening:</strong> Added case-insensitive duplicate
+                    email/name checks, <code>sqlite3.IntegrityError</code> handling, and whitespace
+                    sanitization across all POST forms to prevent unhandled database crashes.
+                  </li>
+                  <li>
+                    <strong>Matching &amp; Network Resilience:</strong> Upgraded subject matching to
+                    prioritize exact token matches over partial substring matches and enforced a
+                    10-second SMTP socket timeout.
+                  </li>
+                </ol>
+              </section>
             </div>
           </div>
         </div>
