@@ -190,7 +190,7 @@ export default function Documentation() {
               <h3>Application for Software Engineering / Web Developer Intern Role</h3>
               <p>
                 John Anthony O. Santiago ·{' '}
-                <a href="mailto:johnanthonysantiago@gmail.com">johnanthonysantiago@gmail.com</a> · +63
+                <a href="mailto:santiago.johnanthonyorillanes@filamer.edu.ph">santiago.johnanthonyorillanes@filamer.edu.ph</a> · +63
                 962 527 7295
               </p>
             </header>
@@ -238,7 +238,7 @@ export default function Documentation() {
               <h3>John Anthony O. Santiago — Software Engineering / Web Developer Intern</h3>
               <p>
                 3rd-Year BS Computer Science, Filamer Christian University (Expected Graduation: 2028){' '}
-                · <a href="mailto:johnanthonysantiago@gmail.com">johnanthonysantiago@gmail.com</a> ·
+                · <a href="mailto:santiago.johnanthonyorillanes@filamer.edu.ph">santiago.johnanthonyorillanes@filamer.edu.ph</a> ·
                 +63 962 527 7295
               </p>
             </header>

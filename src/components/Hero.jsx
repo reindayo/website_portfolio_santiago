@@ -46,7 +46,7 @@ export default function Hero() {
             </a>
             <a
               className="button button--secondary"
-              href="https://www.linkedin.com/in/john-anthony-santiago"
+              href="https://www.linkedin.com/in/john-anthony-santiago-b2351b450/"
               target="_blank"
               rel="noopener noreferrer"
               data-editable-link="linkedin"

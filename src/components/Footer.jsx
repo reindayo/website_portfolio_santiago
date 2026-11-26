@@ -5,7 +5,7 @@ export default function Footer() {
         © {new Date().getFullYear()} John Anthony O. Santiago. Built for the Professional Track —
         Business Communication in IT.{' '}
         <a
-          href="https://www.linkedin.com/in/john-anthony-santiago/"
+          href="https://www.linkedin.com/in/john-anthony-santiago-b2351b450/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn Profile"
