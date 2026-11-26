@@ -58,39 +58,44 @@ export default function Documentation() {
         <h2 id="documentation-title">Documentation Artifact</h2>
         <p>
           Interactive viewer of real technical writing samples created for Business Communication in
-          IT, led by a resume-connected QA defect report from StudyQuest.
+          IT, led by a QA defect report from the Peer Tutoring Matching System.
         </p>
       </div>
 
       <article id="qa-artifact" className="qa-artifact reveal" aria-labelledby="qa-artifact-title">
         <header className="qa-artifact__header">
-          <p className="meta-label">Artifact ID: QA-SQ-019</p>
+          <p className="meta-label">Artifact ID: QA-PT-019</p>
           <h3 id="qa-artifact-title">QA Defect & Resolution Report</h3>
           <p className="qa-artifact__system">
-            Target System: StudyQuest 3D Level Generator (Unity / C# / Async JSON Parser)
+            Target System: Peer Tutoring Matching System (Python / Flask / SQLite3)
           </p>
         </header>
         <div className="qa-artifact__grid">
           <section className="qa-artifact__block" aria-labelledby="qa-summary">
             <h4 id="qa-summary">Summary</h4>
             <p>
-              Asynchronous PDF-to-JSON parsing stalls at 90% when ingesting multi-column academic
-              reviewers containing non-UTF8 special characters, causing the level generator coroutine
-              to hang before scene instantiation.
+              Submitting a second tutor with an already-registered email address triggers an
+              unhandled <code>sqlite3.IntegrityError</code> crash, while a successful student request
+              deletes all matched tutors from <code>tutors.db</code> via{' '}
+              <code>delete_tutor_by_name()</code>, wiping out active tutor availability after a single
+              submission.
             </p>
           </section>
           <section className="qa-artifact__block" aria-labelledby="qa-steps">
             <h4 id="qa-steps">Steps to Reproduce</h4>
             <ol className="qa-steps">
               <li>
-                Upload a multi-column <code>.pdf</code> lecture reviewer (&gt;15 pages) containing
-                em-dashes or mathematical symbols.
+                Register an active tutor in <code>/add_tutor.html</code> and submit a matching student
+                request via <code>/request</code>.
               </li>
               <li>
-                Trigger the <code>GenerateQuizEnvironment()</code> async pipeline.
+                Observe <code>tutors.db</code> wiping the matched tutor record upon{' '}
+                <code>email_sent</code>.
               </li>
               <li>
-                Observe the coroutine thread lock prior to <code>SceneManager.LoadSceneAsync()</code>.
+                Attempt to add a tutor using an existing email address and observe an unhandled{' '}
+                <code>sqlite3.IntegrityError</code> 500 crash instead of the <code>tutor_error=1</code>{' '}
+                alert.
               </li>
             </ol>
           </section>
@@ -98,19 +103,24 @@ export default function Documentation() {
             <h4 id="qa-results">Expected vs. Actual Result</h4>
             <dl className="qa-results">
               <dt>Expected</dt>
-              <dd>Sanitized JSON question nodes populate 3D stage triggers within 3 seconds.</dd>
+              <dd>
+                Matched tutors remain in <code>tutors.db</code> for future requests, and duplicate
+                emails cleanly redirect with <code>tutor_error=1</code>.
+              </dd>
               <dt>Actual</dt>
               <dd>
-                Unhandled <code>JsonReaderException</code> halts the main thread parser.
+                Active tutors are permanently deleted on match, and duplicate email submissions crash
+                the Flask worker.
               </dd>
             </dl>
           </section>
           <section className="qa-artifact__block" aria-labelledby="qa-resolution">
             <h4 id="qa-resolution">Resolution & Verification</h4>
             <p>
-              Implemented pre-flight UTF-8 byte sanitization (<code>Encoding.UTF8</code>) and
-              structured try-catch fallback handling in C#; verified across 12 BSCS course reviewers
-              with 0% crash recurrence.
+              Replaced post-match deletion with non-destructive single-tutor assignment, added
+              case-insensitive duplicate checks with <code>sqlite3.IntegrityError</code> handling in{' '}
+              <code>save_tutor()</code>, upgraded subject lookup to prioritize exact token matches,
+              and enforced a 10-second <code>smtplib.SMTP</code> socket timeout.
             </p>
           </section>
         </div>

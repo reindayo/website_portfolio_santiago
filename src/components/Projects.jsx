@@ -13,8 +13,9 @@ export default function Projects() {
         <p className="meta-label">Completed Work</p>
         <h2 id="projects-title">Featured Projects</h2>
         <p>
-          Two portfolio entries, one completed build and one editable placeholder. Each case study
-          covers the problem, solution, my role, tech stack, and interface visuals.
+          Two portfolio entries covering an electronic parts inventory tracker and a completed
+          tutoring request platform. Each case study documents the problem, solution, my role, tech
+          stack, and interface visuals.
         </p>
       </div>
 

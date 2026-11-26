@@ -22,6 +22,7 @@ const domains = [
       { name: 'Vite', tier: 'working-knowledge', label: 'Working Knowledge' },
       { name: 'Next.js', tier: 'working-knowledge', label: 'Working Knowledge' },
       { name: 'Flask', tier: 'working-knowledge', label: 'Working Knowledge' },
+      { name: 'SQLite', tier: 'working-knowledge', label: 'Working Knowledge' },
     ],
   },
   {

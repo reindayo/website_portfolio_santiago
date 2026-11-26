@@ -1,10 +1,10 @@
 export const projects = [
   {
     id: 'part-tract',
-    index: 'Project 1 · Placeholder',
+    index: 'Project 1 · In Development',
     title: 'Part-Tract',
     summary:
-      'A web-based tracking and management system designed to streamline part and resource monitoring.',
+      'A web-based electronic parts and inventory tracking system for component lookup, storage bin assignment, and stock status tracking across shared resource views.',
     link: null,
     blocks: [
       {
@@ -15,12 +15,12 @@ export const projects = [
       {
         id: 'part-tract-solution',
         heading: 'Solution',
-        text: 'The planned build uses a responsive web interface with a clear tracking workflow, reusable views, and a structured data model that can be expanded as requirements are defined.',
+        text: 'The responsive web interface connects component lookup, storage bin assignment, and stock status updates through a clear tracking workflow, reusable views, and a structured parts inventory data model.',
       },
       {
         id: 'part-tract-role',
         heading: 'My Role',
-        text: 'Planned the interface structure and data flow, prepared reusable React components, and left the content intentionally generic so project-specific details can be added later.',
+        text: 'Designed the component lookup flow, bin assignment states, and stock status views, then prepared reusable React components and a schema for part records, locations, and availability.',
       },
       {
         id: 'part-tract-stack',
@@ -31,7 +31,7 @@ export const projects = [
     visuals: {
       id: 'part-tract-visuals',
       caption:
-        'Placeholder schematic: part records move through a simple tracking flow into a shared resource overview.',
+        'Interactive schematic: component records move through lookup, storage bin assignment, and stock status review into a shared inventory overview.',
       diagram: 'part-tract',
     },
   },
@@ -43,7 +43,7 @@ export const projects = [
       'Full-stack peer-to-peer tutoring request platform that routes student subject requests, queries tutor availability across dual SQLite databases (requests_staff.db and tutors.db), serves deduplicated subject options via /api/subjects, and dispatches automated Gmail SMTP notifications behind session-authenticated staff routes.',
     link: {
       label: 'GitHub Repository',
-      href: 'https://github.com/reindayo/Website_project',
+      href: 'https://github.com/reindayo/peer-tutoring-matching-system',
     },
     blocks: [
       {
@@ -65,7 +65,7 @@ export const projects = [
     visuals: {
       id: 'peer-tutoring-visuals',
       caption:
-        'Fallback schematic: student subject requests, dual-database tutor lookup, deduplicated subject options, and staff-authenticated notification flow.',
+        'System pipeline preview: student request, dual SQLite lookup, exact subject match, and SMTP dispatch with QA-verified email_sent and duplicate_blocked states.',
       diagram: 'peer-tutoring',
     },
   },

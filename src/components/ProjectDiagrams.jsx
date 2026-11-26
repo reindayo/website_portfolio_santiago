@@ -8,7 +8,7 @@ const trackingStages = [
     width: 40,
     wash: 'var(--sienna-wash)',
     stroke: 'var(--sienna)',
-    caption: 'Parts recorded into the stock ledger',
+    caption: 'Component SKU recorded in parts ledger',
   },
   {
     id: 'update',
@@ -17,7 +17,7 @@ const trackingStages = [
     width: 56,
     wash: 'var(--paper)',
     stroke: 'var(--rule)',
-    caption: 'Stock records moved into active use',
+    caption: 'Bin assignment and stock status updated',
   },
   {
     id: 'review',
@@ -26,7 +26,7 @@ const trackingStages = [
     width: 62,
     wash: 'var(--teal-wash)',
     stroke: 'var(--teal)',
-    caption: 'Ordered parts checked before release',
+    caption: 'Stock levels checked before release',
   },
 ]
 
@@ -48,12 +48,12 @@ export function PartTractDiagram() {
       className="case-study__diagram"
       viewBox="0 0 680 320"
       role="group"
-      aria-label="Part-Tract tracking schematic with interactive tracking stages"
+      aria-label="Part-Tract inventory schematic with interactive component lookup, bin assignment, and stock status stages"
     >
       <g fontFamily="'JetBrains Mono', monospace" fontSize="10" letterSpacing="1.4" fill="var(--slate)">
-        <text x="26" y="38">PART RECORDS</text>
+        <text x="26" y="38">COMPONENT RECORDS</text>
         <text x="278" y="38">TRACKING FLOW</text>
-        <text x="500" y="38">RESOURCE OVERVIEW</text>
+        <text x="500" y="38">STOCK STATUS OVERVIEW</text>
       </g>
       <g fill="none" stroke="var(--rule)" strokeWidth="1.2">
         <rect x="26" y="56" width="198" height="216" fill="var(--paper)" />
@@ -62,10 +62,10 @@ export function PartTractDiagram() {
         <line x1="26" y1="218" x2="224" y2="218" />
       </g>
       <g fontFamily="'JetBrains Mono', monospace" fontSize="9" fill="var(--slate)">
-        <text x="46" y="86">PART-001 · IN STOCK</text>
-        <text x="46" y="140">PART-002 · IN USE</text>
-        <text x="46" y="194">PART-003 · ORDERED</text>
-        <text x="46" y="248">PART-004 · IN STOCK</text>
+        <text x="46" y="86">LM358 · BIN A1 · IN STOCK</text>
+        <text x="46" y="140">74HC595 · BIN B2 · IN USE</text>
+        <text x="46" y="194">USB-C-16P · BIN C4 · ORDERED</text>
+        <text x="46" y="248">NE555 · BIN A3 · IN STOCK</text>
       </g>
       <g fill="var(--teal-wash)" stroke="var(--teal)" strokeWidth="1.2">
         <rect x="32" y="79" width="8" height="8" />
@@ -146,78 +146,183 @@ export function PartTractDiagram() {
         <text x="615" y="248" fill="var(--sienna)">37</text>
       </g>
       <g fontFamily="'JetBrains Mono', monospace" fontSize="9" fill="var(--slate)" textAnchor="middle">
-        <text x="340" y="308">PLACEHOLDER TRACKING SCHEMATIC</text>
+        <text x="340" y="308">{'ELECTRONIC PARTS & INVENTORY TRACKING FLOW'}</text>
       </g>
     </svg>
   )
 }
 
+const pipelineStages = [
+  {
+    id: 'request',
+    lines: ['STUDENT', 'REQUEST'],
+    x: 26,
+    width: 144,
+    wash: 'var(--sienna-wash)',
+    stroke: 'var(--sienna)',
+    detail: 'POST /request',
+    caption: 'POST /request submits a subject through staff-authenticated routes',
+  },
+  {
+    id: 'lookup',
+    lines: ['DUAL SQLITE', 'LOOKUP'],
+    x: 186,
+    width: 144,
+    wash: 'var(--paper)',
+    stroke: 'var(--rule)',
+    detail: 'requests_staff.db / tutors.db',
+    caption: 'requests_staff.db and tutors.db queried for subject availability',
+  },
+  {
+    id: 'match',
+    lines: ['EXACT SUBJECT', 'MATCH'],
+    x: 346,
+    width: 144,
+    wash: 'var(--paper)',
+    stroke: 'var(--rule)',
+    detail: 'exact token match',
+    caption: 'Exact subject tokens outrank partial matches; duplicates blocked',
+  },
+  {
+    id: 'dispatch',
+    lines: ['SMTP', 'DISPATCH'],
+    x: 506,
+    width: 144,
+    wash: 'var(--teal-wash)',
+    stroke: 'var(--teal)',
+    detail: 'email_sent',
+    caption: 'Gmail SMTP notification sent with a 10-second socket timeout',
+  },
+]
+
 export function PeerTutoringDiagram() {
+  const [activeStage, setActiveStage] = useState(pipelineStages[0].id)
+  const currentStage = pipelineStages.find((stage) => stage.id === activeStage) || pipelineStages[0]
+
+  const selectStage = (id) => setActiveStage(id)
+
+  const handleStageKeyDown = (event, id) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      selectStage(id)
+    }
+  }
+
   return (
     <svg
       className="case-study__diagram"
       viewBox="0 0 680 320"
-      role="presentation"
-      aria-hidden="true"
-      focusable="false"
+      role="group"
+      aria-label="Peer Tutoring Matching System pipeline preview with interactive request, lookup, match, and dispatch stages"
     >
       <g fontFamily="'JetBrains Mono', monospace" fontSize="10" letterSpacing="1.4" fill="var(--slate)">
-        <text x="26" y="38">WEEKLY AVAILABILITY</text>
-        <text x="452" y="38">RANKED TUTOR MATCHES</text>
+        <text x="26" y="38">SYSTEM PIPELINE PREVIEW</text>
+        <text x="506" y="38">QA STATUS</text>
       </g>
-      <g fill="none" stroke="var(--rule)" strokeWidth="1.2">
-        <rect x="26" y="56" width="372" height="216" fill="var(--paper)" />
-        <line x1="26" y1="92" x2="398" y2="92" />
-        <line x1="100" y1="56" x2="100" y2="272" />
-        <line x1="174" y1="56" x2="174" y2="272" />
-        <line x1="248" y1="56" x2="248" y2="272" />
-        <line x1="322" y1="56" x2="322" y2="272" />
-        <line x1="26" y1="128" x2="398" y2="128" strokeDasharray="2 6" />
-        <line x1="26" y1="164" x2="398" y2="164" strokeDasharray="2 6" />
-        <line x1="26" y1="200" x2="398" y2="200" strokeDasharray="2 6" />
-        <line x1="26" y1="236" x2="398" y2="236" strokeDasharray="2 6" />
+      <g
+        aria-hidden="true"
+        stroke="var(--sienna)"
+        strokeWidth="1.6"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M172 126 H184 M181 123 L184 126 L181 129" />
+        <path d="M332 126 H344 M341 123 L344 126 L341 129" />
+        <path d="M492 126 H504 M501 123 L504 126 L501 129" />
+      </g>
+      {pipelineStages.map((stage, index) => (
+        <g
+          key={stage.id}
+          className={`tracking-stage${activeStage === stage.id ? ' is-active' : ''}`}
+          role="button"
+          tabIndex={0}
+          aria-label={`${stage.lines.join(' ')}: ${stage.caption}`}
+          aria-pressed={activeStage === stage.id}
+          onClick={() => selectStage(stage.id)}
+          onMouseEnter={() => selectStage(stage.id)}
+          onFocus={() => selectStage(stage.id)}
+          onKeyDown={(event) => handleStageKeyDown(event, stage.id)}
+        >
+          <rect
+            className="tracking-stage__box"
+            x={stage.x}
+            y="56"
+            width={stage.width}
+            height="140"
+            fill={stage.wash}
+            stroke={stage.stroke}
+            strokeWidth="1.2"
+          />
+          <text
+            x={stage.x + 12}
+            y="76"
+            fontFamily="'JetBrains Mono', monospace"
+            fontSize="9"
+            fill={stage.stroke}
+          >
+            {String(index + 1).padStart(2, '0')}
+          </text>
+          <text
+            className="tracking-stage__label"
+            x={stage.x + stage.width / 2}
+            y="116"
+            textAnchor="middle"
+            fontFamily="'JetBrains Mono', monospace"
+            fontSize="9"
+            fill="var(--ink)"
+          >
+            {stage.lines[0]}
+          </text>
+          <text
+            className="tracking-stage__label"
+            x={stage.x + stage.width / 2}
+            y="132"
+            textAnchor="middle"
+            fontFamily="'JetBrains Mono', monospace"
+            fontSize="9"
+            fill="var(--ink)"
+          >
+            {stage.lines[1]}
+          </text>
+          <text
+            x={stage.x + stage.width / 2}
+            y="170"
+            textAnchor="middle"
+            fontFamily="'JetBrains Mono', monospace"
+            fontSize="8"
+            fill="var(--slate)"
+          >
+            {stage.detail}
+          </text>
+        </g>
+      ))}
+      <g fontFamily="'JetBrains Mono', monospace">
+        <text className="tracking-status-label" x="26" y="220">
+          PIPELINE · {currentStage.lines.join(' / ')}
+        </text>
+        <text className="tracking-status-text" x="26" y="238">
+          {currentStage.caption}
+        </text>
+      </g>
+      <g fontFamily="'JetBrains Mono', monospace">
+        <rect x="26" y="250" width="300" height="40" fill="var(--teal-wash)" stroke="var(--teal)" strokeWidth="1.2" />
+        <text x="40" y="266" fontSize="9" fontWeight="600" fill="var(--teal)">
+          email_sent
+        </text>
+        <text x="40" y="282" fontSize="8" fill="var(--slate)">
+          tutor record retained · SMTP dispatched
+        </text>
+        <rect x="354" y="250" width="300" height="40" fill="var(--sienna-wash)" stroke="var(--sienna)" strokeWidth="1.2" />
+        <text x="368" y="266" fontSize="9" fontWeight="600" fill="var(--sienna)">
+          duplicate_blocked
+        </text>
+        <text x="368" y="282" fontSize="8" fill="var(--slate)">
+          tutor_error=1 · duplicate email rejected
+        </text>
       </g>
       <g fontFamily="'JetBrains Mono', monospace" fontSize="9" fill="var(--slate)" textAnchor="middle">
-        <text x="63" y="78">MON</text>
-        <text x="137" y="78">TUE</text>
-        <text x="211" y="78">WED</text>
-        <text x="285" y="78">THU</text>
-        <text x="359" y="78">FRI</text>
-      </g>
-      <g fill="var(--teal-wash)" stroke="var(--teal)" strokeWidth="1.2">
-        <rect x="104" y="132" width="66" height="28" />
-        <rect x="252" y="168" width="66" height="28" />
-        <rect x="326" y="204" width="66" height="28" />
-      </g>
-      <g fill="var(--sienna-wash)" stroke="var(--sienna)" strokeWidth="1.2">
-        <rect x="30" y="96" width="66" height="28" />
-        <rect x="178" y="204" width="66" height="28" />
-      </g>
-      <g fontFamily="'JetBrains Mono', monospace" fontSize="8" fill="var(--ink)" textAnchor="middle">
-        <text x="137" y="150">MATCH</text>
-        <text x="285" y="186">OPEN</text>
-        <text x="359" y="222">MATCH</text>
-        <text x="63" y="114">BOOKED</text>
-        <text x="211" y="222">OPEN</text>
-      </g>
-      <g fill="none" stroke="var(--rule)" strokeWidth="1.2">
-        <rect x="452" y="56" width="202" height="62" fill="var(--paper)" />
-        <rect x="452" y="134" width="202" height="62" fill="var(--paper)" />
-        <rect x="452" y="212" width="202" height="62" fill="var(--sienna-wash)" stroke="var(--sienna)" />
-      </g>
-      <g fontFamily="'JetBrains Mono', monospace" fontSize="9" fill="var(--slate)">
-        <text x="466" y="78">TUTOR A · CS 201</text>
-        <text x="466" y="96" fill="var(--teal)">94% SCHEDULE FIT</text>
-        <text x="466" y="156">TUTOR B · MATH 101</text>
-        <text x="466" y="174" fill="var(--teal)">88% SCHEDULE FIT</text>
-        <text x="466" y="234">TUTOR C · CS 201</text>
-        <text x="466" y="252" fill="var(--sienna)">76% SCHEDULE FIT</text>
-      </g>
-      <g stroke="var(--ink)" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M620 72 l5 5 9-10" />
-      </g>
-      <g fontFamily="'JetBrains Mono', monospace" fontSize="9" fill="var(--slate)" textAnchor="middle">
-        <text x="340" y="308">CONFIRMED SESSION STATE</text>
+        <text x="340" y="308">FLASK · SQLITE3 · SMTP · QA VERIFIED</text>
       </g>
     </svg>
   )
